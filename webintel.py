@@ -185,7 +185,14 @@ class Probe (threading.Thread):
         s.found("Nagios") if s.inBody("Nagios Core") else 0
         s.found("Oracle Middleware") if s.inBody("Welcome to Oracle Fusion Middleware") else 0
         s.found("Oracle Reports") if s.inBody("Oracle Reports Services - Servlet") else 0
+        s.found("TaskTop") if s.inBody("Sign in to Tasktop") else 0
+        s.found("KeyCloak") if s.inBody("Log in to Keycloak") else 0
+        s.found("Apache Spark Master") if s.inBody("Spark Master") else 0
+        s.found("Apache Spark Worker") if s.inBody("Spark Worker") else 0
+        s.found("Werkzeug Debugger") if s.inBody("Werkzeug Debugger") else 0
         
+        #Cruise Specific
+        s.found("Cruise GULP") if s.inBody("GULP") and (s.inBody("gulp.getcruise.com") or s.inBody("gulp-staging.getcruise.com")) else 0
 
         # always print server header. TODO make this cleaner
         server = s.resp.get('server','')
