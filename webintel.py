@@ -191,9 +191,6 @@ class Probe (threading.Thread):
         s.found("Apache Spark Worker") if s.inBody("Spark Worker") else 0
         s.found("Werkzeug Debugger") if s.inBody("Werkzeug Debugger") else 0
         
-        #Cruise Specific
-        s.found("Cruise GULP") if s.inBody("GULP") and (s.inBody("gulp.getcruise.com") or s.inBody("gulp-staging.getcruise.com")) else 0
-
         # always print server header. TODO make this cleaner
         server = s.resp.get('server','')
         s.found(server) if server else 0
