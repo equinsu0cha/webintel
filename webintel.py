@@ -190,6 +190,8 @@ class Probe (threading.Thread):
         s.found("Apache Spark Master") if s.inBody("Spark Master") else 0
         s.found("Apache Spark Worker") if s.inBody("Spark Worker") else 0
         s.found("Werkzeug Debugger") if s.inBody("Werkzeug Debugger") else 0
+        s.found("phpPgAdmin") if s.inBody("phpPgAdmin") else 0
+        s.found("GitLab") if s.inBody("GitLab Community Edition") else 0   
         
         # always print server header. TODO make this cleaner
         server = s.resp.get('server','')
